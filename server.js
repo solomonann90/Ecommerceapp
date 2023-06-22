@@ -29,7 +29,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(express.static(path.join__dirname, './client/build'))
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 //routes
 app.use("/api/auth", authRoutes)
@@ -38,7 +38,7 @@ app.use("/api/product", productRoutes)
 
 //rest api
 app.use('*', function (req, res) {
-  const rootPath = path.join(__dirname, './client/build'); // Specify the root path of your static files
+  const rootPath = path.join(__dirname, 'client', 'build'); // Specify the root path of your static files
   res.sendFile(path.join(rootPath, 'index.html'));
 });
 
