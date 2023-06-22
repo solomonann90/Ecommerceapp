@@ -38,8 +38,10 @@ app.use("/api/product", productRoutes)
 
 //rest api
 app.use('*', function (req, res) {
-    res.sendFile(path.join(__dirname, './client/build/index.html'))
-})
+  const rootPath = path.join(__dirname, './client/build'); // Specify the root path of your static files
+  res.sendFile(path.join(rootPath, 'index.html'));
+});
+
 
 //PORT
 const PORT = process.env.PORT;
